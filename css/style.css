@@ -1,0 +1,214 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    color: white;
+    font-family: monospace;
+}
+ul > li {
+    margin-bottom: 10px;
+}
+body {
+    background: #000;
+  /*  
+    background: #0F4DD3;
+    background: -webkit-linear-gradient(top left, #0F4DD3, #769DED);
+    background: -moz-linear-gradient(top left, #0F4DD3, #769DED);
+    background: linear-gradient(to bottom right, #0F4DD3, #769DED);
+    */
+    /*background: url('../img/bg.jpg');*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+}
+
+table{
+    border-collapse: collapse;
+    border: 2px solid #fff;
+}
+td {
+    width: 55px;
+    height: 55px;
+}
+
+tr,
+td {
+    border-collapse: collapse;
+    background-color: white;
+    margin: 0 auto; 
+    text-align: center;
+    border: 2px solid black;
+}
+
+
+td > img{
+    width: 70%;
+}
+
+
+.main_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.maps {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.maps > table{
+    margin-bottom: 10px;
+}
+.player {
+    margin-bottom: 10px;
+}
+
+.black_tiles{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+}
+.launch_screen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+}
+.choose_map{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.choose_map > figure{
+    cursor: pointer;
+}
+figcaption {
+    font-style: italic;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+.pl_name, .previous_game_result, .choose_map, .start_btn{
+    margin: 20px 0;
+}
+
+.map{
+    padding: 30px;
+}
+
+.player_input{
+    padding: 10px;
+    outline: none;  
+    border: none;
+    color: black;
+    font-size: 20px;
+}
+
+.start_btn,
+.restart_btn{
+    padding: 10px 25px;
+    cursor: pointer;
+    border: none;
+    font-size: 20px;
+    background-color: black;
+    border: 2px solid white;
+    transition: 1s all;
+}
+.start_btn:hover,
+.restart_btn:hover{
+    background-color: white;
+    border-color: black;
+    color: black;
+    font-size: 25px;
+}
+
+.fst_map,
+.snd_map,
+.thd_map{
+    display: none;
+}
+
+.selected{
+    border: 5px solid white !important;
+    border-radius: 50px;
+    transition: all 1s;
+}
+
+.choose_map > .map{
+    border: 5px solid transparent;
+}
+.pl_name,
+.timer{
+    font-size: 35px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    margin: 0;
+}
+
+.pl_name{
+    margin-bottom: 10px;
+}
+
+.box{
+    padding: 20px 40px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+.player_name, .time{
+    font-weight: bold;
+    font-size: 40px;
+}
+.minutes, .seconds, .player_name{
+    color: red;
+}
+
+.lighten{
+    transition: background-color 1s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    background-color: #fff5b6;
+}
+.error{
+    transition: background-color 2s ease;
+    background-color: red;
+}
+.game_map{
+    cursor: pointer;
+}
+
+.bulb{
+    background-image: url('../img/lightbulb.png');
+    background-size: cover;
+    background-size: 75%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+.win{
+    width: 50%;
+    text-align: center;
+    border: 1px solid #fff;
+    overflow: hidden;
+    padding: 30px;
+    display: none;
+    border-radius: 50px;
+    margin-top: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #000;
+}
+
+.win h1{
+    font-size: 50px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+    <div class="main_div">
+        <input class="player" type="text" placeholder="Enter Name">
+        <table></table>
+    </div>
+-->
+
+    <div class="launch_screen">
+        <div class="game_description">
+            <h1 style="margin-bottom: 30px; text-align: center;">Game description</h1>
+            <ul style="margin-left: 1rem;">
+                <li>The king's palace has rooms with square shaped floors that consist of black and white tiles only.
+                </li>
+                <li>Light bulbs can only be placed above white tiles.</li>
+                <li>The light from the light bulbs does not spread diagonally, only straight along the given row and
+                    column.</li>
+                <li>The black tiles have objects placed on them, which block the propagation of light.</li>
+                <li>Black cells can optionally contain an integer from 0 to 4. This indicates how many adjacent (bottom,
+                    top, right, left) cells contain light bulbs. If there is such a number, the puzzle must be solved
+                    accordingly!</li>
+                <li>Two light bulbs can NEVER illuminate each other!</li>
+                <li>The goal of the game is to place the light bulbs so that all the white tiles are illuminated.</li>
+                <li>The game is played by one player until he solves the puzzle, so there is no need to manage multiple
+                    players at the same time or divide into rounds.</li>
+            </ul>
+        </div>
+        <h2 style="margin: 30px 0;">Choose Map</h2>
+        <div class="choose_map">
+            <figure class="map">
+                <figcaption>7x7</figcaption>
+                <img src="img/map1.png" alt="map_1">
+            </figure>
+            <figure class="map">
+                <figcaption>10x10</figcaption>
+                <img src="img/map2.png" alt="map_2">
+            </figure>
+            <figure class="map">
+                <figcaption>7x7</figcaption>
+                <img src="img/map3.png" alt="map_3">
+            </figure>
+        </div>
+        <div>
+            <input type="text" class="player_input" placeholder="Enter Player's Name" required>
+        </div>
+        <div>
+            <button class="start_btn">Start!</button>
+        </div>
+        <div class="previous_game_result">
+
+        </div>
+    </div>
+
+    <div class="main_div">
+        <div class="maps">
+            <div class="box">
+                <p class="pl_name">👨🏻‍💻 Player: <span class="player_name"></span></p>
+                <p class="timer">⏱ Timer: <span class="minutes">00</span>:<span class="seconds">00</span></p>
+            </div>
+            <table class="game_map fst_map" data-map="0">
+                <tbody>
+                    <tr>
+                        <td data-row-index="0" data-col-index="0" class="right_end"></td>
+                        <td data-row-index="0" data-col-index="1"></td>
+                        <td data-row-index="0" data-col-index="2"></td>
+                        <td data-row-index="0" data-col-index="3" class="black_tiles">1</td>
+                        <td data-row-index="0" data-col-index="4"></td>
+                        <td data-row-index="0" data-col-index="5"></td>
+                        <td data-row-index="0" data-col-index="6" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="1" data-col-index="0" class="right_end"></td>
+                        <td data-row-index="1" data-col-index="1" class="black_tiles">0</td>
+                        <td data-row-index="1" data-col-index="2"></td>
+                        <td data-row-index="1" data-col-index="3"></td>
+                        <td data-row-index="1" data-col-index="4"></td>
+                        <td data-row-index="1" data-col-index="5" class="black_tiles">2</td>
+                        <td data-row-index="1" data-col-index="6" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="2" data-col-index="0" class="right_end"></td>
+                        <td data-row-index="2" data-col-index="1"></td>
+                        <td data-row-index="2" data-col-index="2"></td>
+                        <td data-row-index="2" data-col-index="3"></td>
+                        <td data-row-index="2" data-col-index="4"></td>
+                        <td data-row-index="2" data-col-index="5"></td>
+                        <td data-row-index="2" data-col-index="6" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="3" data-col-index="0" class="black_tiles" class="right_end"></td>
+                        <td data-row-index="3" data-col-index="1"></td>
+                        <td data-row-index="3" data-col-index="2"></td>
+                        <td data-row-index="3" data-col-index="3" class="black_tiles"></td>
+                        <td data-row-index="3" data-col-index="4"></td>
+                        <td data-row-index="3" data-col-index="5"></td>
+                        <td data-row-index="3" data-col-index="6" class="black_tiles" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="4" data-col-index="0" class="right_end"></td>
+                        <td data-row-index="4" data-col-index="1"></td>
+                        <td data-row-index="4" data-col-index="2"></td>
+                        <td data-row-index="4" data-col-index="3"></td>
+                        <td data-row-index="4" data-col-index="4"></td>
+                        <td data-row-index="4" data-col-index="5"></td>
+                        <td data-row-index="4" data-col-index="6" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="5" data-col-index="0" class="right_end"></td>
+                        <td data-row-index="5" data-col-index="1" class="black_tiles"></td>
+                        <td data-row-index="5" data-col-index="2"></td>
+                        <td data-row-index="5" data-col-index="3"></td>
+                        <td data-row-index="5" data-col-index="4"></td>
+                        <td data-row-index="5" data-col-index="5" class="black_tiles">2</td>
+                        <td data-row-index="5" data-col-index="6" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="6" data-col-index="0" class="right_end"></td>
+                        <td data-row-index="6" data-col-index="1"></td>
+                        <td data-row-index="6" data-col-index="2"></td>
+                        <td data-row-index="6" data-col-index="3" class="black_tiles">3</td>
+                        <td data-row-index="6" data-col-index="4"></td>
+                        <td data-row-index="6" data-col-index="5"></td>
+                        <td data-row-index="6" data-col-index="6" class="left_end"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="game_map snd_map" data-map="1">
+                <tbody>
+                    <tr>
+                        <td data-row-index="0" data-col-index="0" class="right_end"></td>
+                        <td data-row-index="0" data-col-index="1" class="black_tiles"></td>
+                        <td data-row-index="0" data-col-index="2"></td>
+                        <td data-row-index="0" data-col-index="3"></td>
+                        <td data-row-index="0" data-col-index="4"></td>
+                        <td data-row-index="0" data-col-index="5"></td>
+                        <td data-row-index="0" data-col-index="6"></td>
+                        <td data-row-index="0" data-col-index="7"></td>
+                        <td data-row-index="0" data-col-index="8"></td>
+                        <td data-row-index="0" data-col-index="9" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="1" data-col-index="0" class="right_end"></td>
+                        <td data-row-index="1" data-col-index="1"></td>
+                        <td data-row-index="1" data-col-index="2"></td>
+                        <td data-row-index="1" data-col-index="3"></td>
+                        <td data-row-index="1" data-col-index="4"></td>
+                        <td data-row-index="1" data-col-index="5" class="black_tiles">3</td>
+                        <td data-row-index="1" data-col-index="6"></td>
+                        <td data-row-index="1" data-col-index="7" class="black_tiles">2</td>
+                        <td data-row-index="1" data-col-index="8"></td>
+                        <td data-row-index="1" data-col-index="9" class="black_tiles" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="2" data-col-index="0" class="right_end"></td>
+                        <td data-row-index="2" data-col-index="1" class="black_tiles">0</td>
+                        <td data-row-index="2" data-col-index="2" class="black_tiles"></td>
+                        <td data-row-index="2" data-col-index="3"></td>
+                        <td data-row-index="2" data-col-index="4"></td>
+                        <td data-row-index="2" data-col-index="5"></td>
+                        <td data-row-index="2" data-col-index="6"></td>
+                        <td data-row-index="2" data-col-index="7" class="black_tiles"></td>
+                        <td data-row-index="2" data-col-index="8"></td>
+                        <td data-row-index="2" data-col-index="9" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="3" data-col-index="0" class="right_end"></td>
+                        <td data-row-index="3" data-col-index="1"></td>
+                        <td data-row-index="3" data-col-index="2"></td>
+                        <td data-row-index="3" data-col-index="3"></td>
+                        <td data-row-index="3" data-col-index="4" class="black_tiles"></td>
+                        <td data-row-index="3" data-col-index="5"></td>
+                        <td data-row-index="3" data-col-index="6"></td>
+                        <td data-row-index="3" data-col-index="7"></td>
+                        <td data-row-index="3" data-col-index="8"></td>
+                        <td data-row-index="3" data-col-index="9" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="4" data-col-index="0" class="black_tiles" class="right_end">1</td>
+                        <td data-row-index="4" data-col-index="1"></td>
+                        <td data-row-index="4" data-col-index="2"></td>
+                        <td data-row-index="4" data-col-index="3"></td>
+                        <td data-row-index="4" data-col-index="4" class="black_tiles"></td>
+                        <td data-row-index="4" data-col-index="5" class="black_tiles">1</td>
+                        <td data-row-index="4" data-col-index="6" class="black_tiles"></td>
+                        <td data-row-index="4" data-col-index="7"></td>
+                        <td data-row-index="4" data-col-index="8"></td>
+                        <td data-row-index="4" data-col-index="9" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="5" data-col-index="0" class="right_end"></td>
+                        <td data-row-index="5" data-col-index="1"></td>
+                        <td data-row-index="5" data-col-index="2"></td>
+                        <td data-row-index="5" data-col-index="3" class="black_tiles"></td>
+                        <td data-row-index="5" data-col-index="4" class="black_tiles"></td>
+                        <td data-row-index="5" data-col-index="5" class="black_tiles"></td>
+                        <td data-row-index="5" data-col-index="6"></td>
+                        <td data-row-index="5" data-col-index="7"></td>
+                        <td data-row-index="5" data-col-index="8" class="black_tiles">3</td>
+                        <td data-row-index="5" data-col-index="9" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="6" data-col-index="0" class="right_end"></td>
+                        <td data-row-index="6" data-col-index="1"></td>
+                        <td data-row-index="6" data-col-index="2"></td>
+                        <td data-row-index="6" data-col-index="3"></td>
+                        <td data-row-index="6" data-col-index="4"></td>
+                        <td data-row-index="6" data-col-index="5" class="black_tiles"></td>
+                        <td data-row-index="6" data-col-index="6"></td>
+                        <td data-row-index="6" data-col-index="7"></td>
+                        <td data-row-index="6" data-col-index="8"></td>
+                        <td data-row-index="6" data-col-index="9" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="7" data-col-index="0" class="right_end"></td>
+                        <td data-row-index="7" data-col-index="1"></td>
+                        <td data-row-index="7" data-col-index="2" class="black_tiles">1</td>
+                        <td data-row-index="7" data-col-index="3"></td>
+                        <td data-row-index="7" data-col-index="4"></td>
+                        <td data-row-index="7" data-col-index="5"></td>
+                        <td data-row-index="7" data-col-index="6"></td>
+                        <td data-row-index="7" data-col-index="7" class="black_tiles">0</td>
+                        <td data-row-index="7" data-col-index="8" class="black_tiles"></td>
+                        <td data-row-index="7" data-col-index="9" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="8" data-col-index="0" class="black_tiles" class="right_end">3</td>
+                        <td data-row-index="8" data-col-index="1"></td>
+                        <td data-row-index="8" data-col-index="2" class="black_tiles"></td>
+                        <td data-row-index="8" data-col-index="3"></td>
+                        <td data-row-index="8" data-col-index="4" class="black_tiles">0</td>
+                        <td data-row-index="8" data-col-index="5"></td>
+                        <td data-row-index="8" data-col-index="6"></td>
+                        <td data-row-index="8" data-col-index="7"></td>
+                        <td data-row-index="8" data-col-index="8"></td>
+                        <td data-row-index="8" data-col-index="9" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="9" data-col-index="0" class="right_end"></td>
+                        <td data-row-index="9" data-col-index="1"></td>
+                        <td data-row-index="9" data-col-index="2"></td>
+                        <td data-row-index="9" data-col-index="3"></td>
+                        <td data-row-index="9" data-col-index="4"></td>
+                        <td data-row-index="9" data-col-index="5"></td>
+                        <td data-row-index="9" data-col-index="6"></td>
+                        <td data-row-index="9" data-col-index="7"></td>
+                        <td data-row-index="9" data-col-index="8" class="black_tiles">0</td>
+                        <td data-row-index="9" data-col-index="9" class="left_end"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="game_map thd_map" data-map="2">
+                <tbody>
+                    <tr>
+                        <td data-row-index="0" data-col-index="0" class="right_end"></td>
+                        <td data-row-index="0" data-col-index="1"></td>
+                        <td data-row-index="0" data-col-index="2" class="black_tiles">0</td>
+                        <td data-row-index="0" data-col-index="3"></td>
+                        <td data-row-index="0" data-col-index="4" class="black_tiles"></td>
+                        <td data-row-index="0" data-col-index="5"></td>
+                        <td data-row-index="0" data-col-index="6" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="1" data-col-index="0" class="right_end"></td>
+                        <td data-row-index="1" data-col-index="1"></td>
+                        <td data-row-index="1" data-col-index="2"></td>
+                        <td data-row-index="1" data-col-index="3"></td>
+                        <td data-row-index="1" data-col-index="4"></td>
+                        <td data-row-index="1" data-col-index="5"></td>
+                        <td data-row-index="1" data-col-index="6" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="2" data-col-index="0" class="black_tiles" class="right_end"></td>
+                        <td data-row-index="2" data-col-index="1"></td>
+                        <td data-row-index="2" data-col-index="2" class="black_tiles"></td>
+                        <td data-row-index="2" data-col-index="3"></td>
+                        <td data-row-index="2" data-col-index="4" class="black_tiles">3</td>
+                        <td data-row-index="2" data-col-index="5"></td>
+                        <td data-row-index="2" data-col-index="6" class="black_tiles" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="3" data-col-index="0" class="right_end"></td>
+                        <td data-row-index="3" data-col-index="1"></td>
+                        <td data-row-index="3" data-col-index="2"></td>
+                        <td data-row-index="3" data-col-index="3" class="black_tiles">1</td>
+                        <td data-row-index="3" data-col-index="4"></td>
+                        <td data-row-index="3" data-col-index="5"></td>
+                        <td data-row-index="3" data-col-index="6" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="4" data-col-index="0" class="black_tiles" class="right_end">2</td>
+                        <td data-row-index="4" data-col-index="1"></td>
+                        <td data-row-index="4" data-col-index="2" class="black_tiles"></td>
+                        <td data-row-index="4" data-col-index="3"></td>
+                        <td data-row-index="4" data-col-index="4" class="black_tiles"></td>
+                        <td data-row-index="4" data-col-index="5"></td>
+                        <td data-row-index="4" data-col-index="6" class="black_tiles" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="5" data-col-index="0" class="right_end"></td>
+                        <td data-row-index="5" data-col-index="1"></td>
+                        <td data-row-index="5" data-col-index="2"></td>
+                        <td data-row-index="5" data-col-index="3"></td>
+                        <td data-row-index="5" data-col-index="4"></td>
+                        <td data-row-index="5" data-col-index="5"></td>
+                        <td data-row-index="5" data-col-index="6" class="left_end"></td>
+                    </tr>
+                    <tr>
+                        <td data-row-index="6" data-col-index="0" class="right_end"></td>
+                        <td data-row-index="6" data-col-index="1"></td>
+                        <td data-row-index="6" data-col-index="2" class="black_tiles"></td>
+                        <td data-row-index="6" data-col-index="3"></td>
+                        <td data-row-index="6" data-col-index="4" class="black_tiles">2</td>
+                        <td data-row-index="6" data-col-index="5"></td>
+                        <td data-row-index="6" data-col-index="6" class="left_end"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="win">
+                <h1>YOU WON THE GAME!😀🎉</h1>
+                <button class="restart_btn">Restart</button>
+            </div>
+        </div>
+        
+    
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
